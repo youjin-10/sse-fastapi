@@ -25,9 +25,14 @@ async def read_item(item_id: int):
     return {"item_id": item_id}
 
 async def number_generator():
+    print('계정 생성 작업 시작!')
+    
     for i in range(10):
-        yield f"data: {random.randint(0, 100)}\n\n"
         await asyncio.sleep(7)
+        yield f"data: 계정{i} 생성 완료\n\n"
+
+    print('계정 생성 작업 완료!')
+
 
 @app.get("/stream")
 async def stream_numbers():
